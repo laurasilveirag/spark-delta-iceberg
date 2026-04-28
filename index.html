@@ -284,32 +284,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#arquitetura" class="md-nav__link">
+  <a href="#tecnologias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🏗️ Arquitetura
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tecnologias-utilizadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🛠️ Tecnologias Utilizadas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estrutura-do-projeto" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📂 Estrutura do Projeto
+        🛠️ Tecnologias
       
     </span>
   </a>
@@ -465,32 +443,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#arquitetura" class="md-nav__link">
+  <a href="#tecnologias" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🏗️ Arquitetura
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tecnologias-utilizadas" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🛠️ Tecnologias Utilizadas
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#estrutura-do-projeto" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        📂 Estrutura do Projeto
+        🛠️ Tecnologias
       
     </span>
   </a>
@@ -526,7 +482,8 @@
 
 
 <h1 id="e-commerce-lakehouse-satc">🛒 E-commerce Lakehouse - SATC</h1>
-<p>Projeto desenvolvido para a disciplina de <strong>Arquitetura de Dados</strong> da SATC, explorando tecnologias modernas de armazenamento e processamento de dados em larga escala.</p>
+<p>Projeto desenvolvido para a disciplina de <strong>Arquitetura de Dados</strong> da SATC,
+explorando tecnologias modernas de armazenamento e processamento de dados.</p>
 <h2 id="integrantes">👥 Integrantes</h2>
 <table>
 <thead>
@@ -538,7 +495,7 @@
 <tbody>
 <tr>
 <td>Ana Santinoni</td>
-<td><a href="https://github.com/ana-santinoni">@ana-santinoni</a></td>
+<td><a href="https://github.com/anasantinoni">@anasantinoni</a></td>
 </tr>
 <tr>
 <td>Janaína Carlos</td>
@@ -551,17 +508,14 @@
 </tbody>
 </table>
 <h2 id="sobre-o-projeto">📌 Sobre o Projeto</h2>
-<p>Simulamos o ambiente de dados de um <strong>E-commerce</strong>, utilizando duas fontes de dados:</p>
+<p>Simulamos o ambiente de dados de um <strong>E-commerce</strong> com duas fontes:</p>
 <ul>
 <li><strong>clientes.csv</strong> — cadastro de clientes com nome e estado</li>
 <li><strong>vendas.csv</strong> — registro de vendas com valor, status e data</li>
 </ul>
-<p>O objetivo foi demonstrar como as tecnologias <strong>Delta Lake</strong> e <strong>Apache Iceberg</strong> funcionam dentro do ecossistema <strong>Apache Spark</strong>, realizando operações de INSERT, UPDATE e DELETE de forma confiável e rastreável.</p>
-<h2 id="arquitetura">🏗️ Arquitetura</h2>
-<p>clientes.csv ─┐
-├──► PySpark ──► Filtro (Região Sul) ──► Delta Lake
-vendas.csv  ──┘                                     └──► Apache Iceberg</p>
-<h2 id="tecnologias-utilizadas">🛠️ Tecnologias Utilizadas</h2>
+<p>O objetivo foi demonstrar como <strong>Delta Lake</strong> e <strong>Apache Iceberg</strong> funcionam
+dentro do <strong>Apache Spark</strong>, realizando INSERT, UPDATE e DELETE de forma confiável.</p>
+<h2 id="tecnologias">🛠️ Tecnologias</h2>
 <table>
 <thead>
 <tr>
@@ -590,25 +544,8 @@ vendas.csv  ──┘                                     └──► Apache Ic
 <td>Poetry</td>
 <td>2.3.4</td>
 </tr>
-<tr>
-<td>MkDocs Material</td>
-<td>latest</td>
-</tr>
 </tbody>
 </table>
-<h2 id="estrutura-do-projeto">📂 Estrutura do Projeto</h2>
-<p>spark-delta-iceberg/
-├── data/
-│   ├── raw/          # CSVs originais
-│   ├── delta/        # Tabelas Delta Lake
-│   └── iceberg/      # Tabelas Iceberg
-├── docs/             # Documentação MkDocs
-├── src/
-│   ├── commons.py            # Funções compartilhadas
-│   ├── delta-lake.ipynb      # Notebook Delta Lake
-│   └── apache-iceberg.ipynb  # Notebook Apache Iceberg
-├── mkdocs.yml
-└── pyproject.toml</p>
 <h2 id="links">🔗 Links</h2>
 <ul>
 <li>📁 <a href="https://github.com/laurasilveirag/spark-delta-iceberg">Repositório GitHub</a></li>
