@@ -1,0 +1,155 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "f4b72323-0030-4da5-bfab-3d15e9ba0080",
+  "location" : "../data/iceberg/db/vendas_sul",
+  "last-sequence-number" : 3,
+  "last-updated-ms" : 1777401667443,
+  "last-column-id" : 7,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "id_cliente",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "id_venda",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 3,
+      "name" : "data_venda",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 4,
+      "name" : "valor",
+      "required" : false,
+      "type" : "double"
+    }, {
+      "id" : 5,
+      "name" : "status",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "nome",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 7,
+      "name" : "estado",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "anasantinoni",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 4600442826440206351,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 4600442826440206351,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 1427128965850436998,
+    "timestamp-ms" : 1777401466432,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1777401449508",
+      "added-data-files" : "1",
+      "added-records" : "4",
+      "added-files-size" : "2138",
+      "changed-partition-count" : "1",
+      "total-records" : "4",
+      "total-files-size" : "2138",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "../data/iceberg/db/vendas_sul/metadata/snap-1427128965850436998-1-7dd8d9ab-513e-4e77-a9d7-433414cb6505.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 2,
+    "snapshot-id" : 5226720842446971013,
+    "timestamp-ms" : 1777401663244,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1777401643793",
+      "added-data-files" : "1",
+      "added-records" : "4",
+      "added-files-size" : "2138",
+      "changed-partition-count" : "1",
+      "total-records" : "4",
+      "total-files-size" : "2138",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "../data/iceberg/db/vendas_sul/metadata/snap-5226720842446971013-1-9711b9d6-cad8-4839-bb25-bb441688e068.avro",
+    "schema-id" : 0
+  }, {
+    "sequence-number" : 3,
+    "snapshot-id" : 4600442826440206351,
+    "parent-snapshot-id" : 5226720842446971013,
+    "timestamp-ms" : 1777401667443,
+    "summary" : {
+      "operation" : "overwrite",
+      "spark.app.id" : "local-1777401643793",
+      "added-data-files" : "1",
+      "deleted-data-files" : "1",
+      "added-records" : "4",
+      "deleted-records" : "4",
+      "added-files-size" : "2142",
+      "removed-files-size" : "2138",
+      "changed-partition-count" : "1",
+      "total-records" : "4",
+      "total-files-size" : "2142",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "../data/iceberg/db/vendas_sul/metadata/snap-4600442826440206351-1-f8d81ea7-1cf7-4667-b3ba-d5c9c85135a3.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1777401466432,
+    "snapshot-id" : 1427128965850436998
+  }, {
+    "timestamp-ms" : 1777401663244,
+    "snapshot-id" : 5226720842446971013
+  }, {
+    "timestamp-ms" : 1777401667443,
+    "snapshot-id" : 4600442826440206351
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1777401466432,
+    "metadata-file" : "../data/iceberg/db/vendas_sul/metadata/v1.metadata.json"
+  }, {
+    "timestamp-ms" : 1777401663244,
+    "metadata-file" : "../data/iceberg/db/vendas_sul/metadata/v2.metadata.json"
+  } ]
+}

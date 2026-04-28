@@ -1,0 +1,99 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "f4b72323-0030-4da5-bfab-3d15e9ba0080",
+  "location" : "../data/iceberg/db/vendas_sul",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1777401466432,
+  "last-column-id" : 7,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "id_cliente",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 2,
+      "name" : "id_venda",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 3,
+      "name" : "data_venda",
+      "required" : false,
+      "type" : "date"
+    }, {
+      "id" : 4,
+      "name" : "valor",
+      "required" : false,
+      "type" : "double"
+    }, {
+      "id" : 5,
+      "name" : "status",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "nome",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 7,
+      "name" : "estado",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ ]
+  } ],
+  "last-partition-id" : 999,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "owner" : "anasantinoni",
+    "write.parquet.compression-codec" : "zstd"
+  },
+  "current-snapshot-id" : 1427128965850436998,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 1427128965850436998,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 1427128965850436998,
+    "timestamp-ms" : 1777401466432,
+    "summary" : {
+      "operation" : "append",
+      "spark.app.id" : "local-1777401449508",
+      "added-data-files" : "1",
+      "added-records" : "4",
+      "added-files-size" : "2138",
+      "changed-partition-count" : "1",
+      "total-records" : "4",
+      "total-files-size" : "2138",
+      "total-data-files" : "1",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "../data/iceberg/db/vendas_sul/metadata/snap-1427128965850436998-1-7dd8d9ab-513e-4e77-a9d7-433414cb6505.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "partition-statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1777401466432,
+    "snapshot-id" : 1427128965850436998
+  } ],
+  "metadata-log" : [ ]
+}

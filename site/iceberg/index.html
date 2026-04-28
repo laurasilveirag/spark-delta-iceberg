@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Ana Julia, Janaina e Laura" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Apache Iceberg - PySpark Lakehouse - Delta e Iceberg</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Apache Iceberg";
+        var mkdocs_page_input_path = "iceberg.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> PySpark Lakehouse - Delta e Iceberg
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Cenário e Modelagem (ER)</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../spark/">Apache Spark</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../delta/">Delta Lake</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Apache Iceberg</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#principais-recursos">Principais Recursos</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operacoes-crud-no-projeto">Operações CRUD no Projeto</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#escrita-inicial">Escrita Inicial</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#update-operacao-acid">UPDATE (Operação ACID)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#delete">DELETE</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">PySpark Lakehouse - Delta e Iceberg</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Apache Iceberg</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="apache-iceberg">Apache Iceberg</h1>
+<p>O <strong>Apache Iceberg</strong> é um formato de tabela de alto desempenho para grandes conjuntos de dados analíticos. Ele foi desenhado para resolver problemas de consistência em ambientes de nuvem.</p>
+<h2 id="principais-recursos">Principais Recursos</h2>
+<ul>
+<li><strong>Evolução de Partição:</strong> Permite alterar a forma como os dados são particionados sem reescrever a tabela toda.</li>
+<li><strong>Snapshots Isolatados:</strong> Leitores e escritores nunca se bloqueiam.</li>
+<li><strong>Suporte a Catálogos:</strong> Utiliza catálogos (como Hive ou Hadoop) para gerir as tabelas de forma centralizada.</li>
+</ul>
+<h2 id="operacoes-crud-no-projeto">Operações CRUD no Projeto</h2>
+<p>O Iceberg exige uma interação direta com o catálogo configurado:</p>
+<h3 id="escrita-inicial">Escrita Inicial</h3>
+<pre><code class="language-python">df_sul.write.format(&quot;iceberg&quot;).mode(&quot;overwrite&quot;).saveAsTable(&quot;local.db.vendas_sul&quot;)
+</code></pre>
+<h3 id="update-operacao-acid">UPDATE (Operação ACID)</h3>
+<pre><code class="language-python">spark.sql(&quot;UPDATE local.db.vendas_sul SET valor = valor * 1.10 WHERE id_venda = 1&quot;)
+</code></pre>
+<h3 id="delete">DELETE</h3>
+<pre><code class="language-python">spark.sql(&quot;DELETE FROM local.db.vendas_sul WHERE id_venda = 3&quot;)
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../delta/" class="btn btn-neutral float-left" title="Delta Lake"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../delta/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

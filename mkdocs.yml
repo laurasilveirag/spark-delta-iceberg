@@ -1,10 +1,10 @@
-site_name: E-commerce Lakehouse - SATC
-theme:
-  name: material
-  palette:
-    primary: indigo
+site_name: PySpark Lakehouse - Delta e Iceberg
+site_author: Ana Julia, Janaina e Laura
+
 nav:
-  - Início: index.md
+  - Cenário e Modelagem (ER): index.md
   - Apache Spark: spark.md
   - Delta Lake: delta.md
   - Apache Iceberg: iceberg.md
+
+theme: readthedocs
