@@ -8,4 +8,4 @@ def get_raw_data(spark: SparkSession, filename: str) -> DataFrame:
     return spark.read.option("header", "true").option("inferSchema", "true").csv(path)
 
 def filter_southern_region(df: DataFrame) -> DataFrame:
-    return df.filter(df["estado"].isin("SC", "RS", "PR"))
+    return df.filter(df["estado"].isin(["SC", "RS", "PR"]))

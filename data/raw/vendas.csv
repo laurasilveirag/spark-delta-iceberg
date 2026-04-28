@@ -4,3 +4,14 @@ id_venda,id_cliente,data_venda,valor,status
 3,103,2023-01-17,340.90,cancelado
 4,101,2023-01-18,50.00,concluido
 5,104,2023-01-19,1500.00,concluido
+6,105,2023-01-20,89.90,concluido
+7,106,2023-01-21,450.00,pendente
+8,107,2023-01-22,1200.50,concluido
+9,108,2023-01-23,299.99,concluido
+10,109,2023-01-24,75.00,cancelado
+11,110,2023-01-25,600.00,concluido
+12,111,2023-01-26,315.20,concluido
+13,112,2023-01-27,140.00,processando
+14,113,2023-01-28,980.00,concluido
+15,114,2023-01-29,55.50,concluido
+16,104,2023-01-30,210.00,concluido
