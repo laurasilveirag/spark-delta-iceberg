@@ -148,7 +148,7 @@
 spark = configure_spark_with_delta_pip(builder).getOrCreate()
 </code></pre>
 <h2 id="modelo-er">Modelo ER</h2>
-<p><img alt="Modelo ER" src="../src/docs/modelo_er.jpeg" /></p>
+<p><img alt="Modelo ER" src="../modelo_er.jpeg" /></p>
 <h2 id="operacoes-crud">Operações CRUD</h2>
 <h3 id="insert-salvando-dados-no-delta-lake">📥 INSERT — Salvando dados no Delta Lake</h3>
 <pre><code class="language-python">df_sul = filter_southern_region(df_vendas.join(df_clientes, &quot;id_cliente&quot;))
