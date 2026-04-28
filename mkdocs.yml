@@ -1,0 +1,10 @@
+site_name: E-commerce Lakehouse - SATC
+theme:
+  name: material
+  palette:
+    primary: indigo
+nav:
+  - Início: index.md
+  - Apache Spark: spark.md
+  - Delta Lake: delta.md
+  - Apache Iceberg: iceberg.md
