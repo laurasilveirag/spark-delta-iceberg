@@ -1,0 +1,29 @@
+import pyspark
+from delta import configure_spark_with_delta_pip
+from delta import *
+from commons import get_raw_data, filter_southern_region
+
+print("Iniciando o Spark e o Delta Lake... (Isso pode levar alguns segundos)")
+
+builder = pyspark.sql.SparkSession.builder.appName("DeltaLab") \
+    .config("spark.sql.extensions", "io.delta.sql.DeltaSparkSessionExtension") \
+    .config("spark.sql.catalog.spark_catalog", "org.apache.spark.sql.delta.catalog.DeltaCatalog")
+
+spark = configure_spark_with_delta_pip(builder).getOrCreate()
+
+print("Spark iniciado com sucesso! Processando dados...")
+
+df_vendas = get_raw_data(spark, "vendas.csv")
+df_clientes = get_raw_data(spark, "clientes.csv")
+df_sul = filter_southern_region(df_vendas.join(df_clientes, "id_cliente"))
+
+print("Salvando dados na tabela Delta...")
+df_sul.write.format("delta").mode("overwrite").save("../data/delta/vendas_sul")
+
+print("Lendo tabela e executando CRUD...")
+spark.read.format("delta").load("../data/delta/vendas_sul").createOrReplaceTempView("vendas_delta")
+spark.sql("UPDATE vendas_delta SET valor = valor * 1.10 WHERE id_venda = 1")
+spark.sql("DELETE FROM vendas_delta WHERE id_venda = 3")
+
+print("\n=== RESULTADO FINAL: TABELA VENDAS SUL ===")
+spark.sql("SELECT * FROM vendas_delta").show()

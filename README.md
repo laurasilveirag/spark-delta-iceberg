@@ -17,6 +17,7 @@ Desenvolvido por **Ana Santinoni**, **Janaína Carlos** e **Laura Silveira** —
 | Tecnologia | Versão | Finalidade |
 |---|---|---|
 | [Python](https://www.python.org/) | 3.12 | Linguagem base |
+| [Python](https://www.python.org/) | 3.12 | Linguagem base |
 | [PySpark](https://spark.apache.org/docs/latest/api/python/) | 3.5.3 | Processamento distribuído |
 | [Delta Lake](https://docs.delta.io/latest/index.html) | 3.2.0 | Formato de tabela com transações ACID |
 | [Apache Iceberg](https://iceberg.apache.org/) | 1.4.2 | Formato de tabela open table format |
@@ -30,6 +31,11 @@ Desenvolvido por **Ana Santinoni**, **Janaína Carlos** e **Laura Silveira** —
 
 ```text
 spark-delta-iceberg/
+├── .gitignore
+├── .python-version
+├── mkdocs.yml
+├── pyproject.toml
+├── README.md
 ├── data/
 │   ├── raw/                  # Arquivos CSV de entrada (vendas.csv e clientes.csv)
 │   ├── delta/                # Dados gravados em formato Delta Lake
@@ -38,6 +44,7 @@ spark-delta-iceberg/
 │   ├── index.md              # Página inicial do MkDocs
 │   ├── delta.md              # Documentação detalhada do Delta Lake
 │   ├── iceberg.md            # Documentação detalhada do Apache Iceberg
+│   ├── index.md              # Página inicial, Modelo ER e DDLs
 │   └── spark.md              # Documentação sobre Apache Spark / PySpark
 ├── src/
 │   ├── __init__.py
@@ -70,7 +77,7 @@ pip install poetry
 ### 2. Clonar o repositório
 
 ```bash
-git clone https://github.com/laurasilveirag/spark-delta-iceberg.git
+git clone [https://github.com/laurasilveirag/spark-delta-iceberg.git](https://github.com/laurasilveirag/spark-delta-iceberg.git)
 cd spark-delta-iceberg
 ```
 
@@ -165,14 +172,12 @@ A documentação completa está disponível em:
 
 👉 **[https://laurasilveirag.github.io/spark-delta-iceberg](https://laurasilveirag.github.io/spark-delta-iceberg)**
 
-Para visualizar localmente:
-
+Para testar o site localmente na sua máquina:
 ```bash
 poetry run mkdocs serve
 ```
 
-Para publicar no GitHub Pages:
-
+Para publicar atualizações no GitHub Pages, utilizamos:
 ```bash
 poetry run mkdocs gh-deploy
 ```
