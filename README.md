@@ -1,8 +1,14 @@
 # 🔥 PySpark com Delta Lake e Apache Iceberg
 
-Projeto desenvolvido para a disciplina de **Arquitetura de Dados**, demonstrando o uso do **PySpark** integrado aos formatos de tabela **Delta Lake** e **Apache Iceberg** para processamento e gestão de dados em larga escala.
+Projeto desenvolvido para a disciplina de **Arquitetura de Dados** da SATC, demonstrando o uso do **PySpark** integrado aos formatos de tabela **Delta Lake** e **Apache Iceberg** para processamento e gestão de dados em larga escala.
 
-O ambiente foi configurado com o gestor de pacotes **[uv](https://github.com/astral-sh/uv)**, garantindo reprodutibilidade, performance e isolamento de dependências.
+O ambiente foi configurado com o gestor de pacotes **[Poetry](https://python-poetry.org/)**, garantindo reprodutibilidade, performance e isolamento de dependências.
+
+---
+
+## 👩‍💻 Autoras
+
+Desenvolvido por **Ana Santinoni**, **Janaína Carlos** e **Laura Silveira** — Curso de Engenharia de Dados, SATC.
 
 ---
 
@@ -10,13 +16,13 @@ O ambiente foi configurado com o gestor de pacotes **[uv](https://github.com/ast
 
 | Tecnologia | Versão | Finalidade |
 |---|---|---|
-| [Python](https://www.python.org/) | 3.13 | Linguagem base |
+| [Python](https://www.python.org/) | 3.12 | Linguagem base |
 | [PySpark](https://spark.apache.org/docs/latest/api/python/) | 3.5.3 | Processamento distribuído |
 | [Delta Lake](https://docs.delta.io/latest/index.html) | 3.2.0 | Formato de tabela com transações ACID |
-| [Apache Iceberg](https://iceberg.apache.org/) | 1.10.0 | Formato de tabela (open table format) |
-| [uv](https://github.com/astral-sh/uv) | latest | Gestor de pacotes e ambientes Python |
+| [Apache Iceberg](https://iceberg.apache.org/) | 1.4.2 | Formato de tabela open table format |
+| [Poetry](https://python-poetry.org/) | 2.3.4 | Gestor de pacotes e ambientes Python |
 | [JupyterLab](https://jupyter.org/) | 4.x | Ambiente interativo de notebooks |
-| [MkDocs](https://www.mkdocs.org/) | 1.6.x | Geração de documentação web |
+| [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) | latest | Geração de documentação web |
 
 ---
 
@@ -25,23 +31,23 @@ O ambiente foi configurado com o gestor de pacotes **[uv](https://github.com/ast
 ```text
 spark-delta-iceberg/
 ├── data/
-│   ├── raw/                  # Ficheiros CSV de entrada (vendas.csv e clientes.csv)
+│   ├── raw/                  # Arquivos CSV de entrada (vendas.csv e clientes.csv)
 │   ├── delta/                # Dados gravados em formato Delta Lake
 │   └── iceberg/              # Dados gravados em formato Iceberg
 ├── docs/
-│   ├── assets/               # Imagens e recursos estáticos (ex: diagramas)
 │   ├── index.md              # Página inicial do MkDocs
 │   ├── delta.md              # Documentação detalhada do Delta Lake
 │   ├── iceberg.md            # Documentação detalhada do Apache Iceberg
 │   └── spark.md              # Documentação sobre Apache Spark / PySpark
 ├── src/
 │   ├── __init__.py
-│   ├── commons.py            # Funções partilhadas (leitura e filtros) para os notebooks
+│   ├── commons.py            # Funções compartilhadas (leitura e filtros)
 │   ├── delta-lake.ipynb      # Notebook com demonstração prática (CRUD) no Delta Lake
 │   └── apache-iceberg.ipynb  # Notebook com demonstração prática (CRUD) no Apache Iceberg
 ├── mkdocs.yml                # Configuração do site de documentação
-├── pyproject.toml            # Dependências e metadados do projeto (gerido pelo uv)
+├── pyproject.toml            # Dependências e metadados do projeto (gerido pelo Poetry)
 └── README.md                 # Documentação principal do repositório
+```
 
 ---
 
@@ -49,23 +55,17 @@ spark-delta-iceberg/
 
 ### Pré-requisitos
 
-- Python 3.13 ou superior
-- Java 11 ou superior (necessário para o Spark)
-- `uv` instalado globalmente
+- Python 3.12 ou superior
+- Java 17 ou superior (necessário para o Spark)
+- Poetry instalado globalmente
 
-### 1. Instalar o `uv`
+### 1. Instalar o Poetry
 
-**Linux / macOS:**
 ```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
+pip install poetry
 ```
 
-**Windows (PowerShell):**
-```powershell
-powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
-```
-
-> Documentação completa: [https://github.com/astral-sh/uv#installation](https://github.com/astral-sh/uv#installation)
+> Documentação completa: [https://python-poetry.org/docs/](https://python-poetry.org/docs/)
 
 ### 2. Clonar o repositório
 
@@ -74,55 +74,107 @@ git clone https://github.com/laurasilveirag/spark-delta-iceberg.git
 cd spark-delta-iceberg
 ```
 
-### 3. Instalar as dependências com `uv`
+### 3. Instalar as dependências com Poetry
 
 ```bash
-uv python install
-uv sync --frozen
-uv pip install .
+poetry install --no-root
 ```
 
 ---
 
 ## 🚀 Como Executar
 
-1. Abre a pasta do projeto no VS Code ou inicia o JupyterLab.
-2. Navega até à pasta src/ e abre o ficheiro delta-lake.ipynb ou apache-iceberg.ipynb
-3. Seleciona o kernel do ambiente virtual criado pelo uv (geralmente nomeado como .venv).
-4. Execute as células sequencialmente com **Shift + Enter**
+### Opção 1 — JupyterLab (recomendado para visualização)
 
-> **Atenção:** Os ficheiros CSV (vendas.csv e clientes.csv) precisam de estar corretamente posicionados na pasta data/raw/ antes da execução dos notebooks.
+```bash
+poetry run jupyter lab
+```
+
+1. Acesse `http://localhost:8888` no navegador
+2. Navegue até a pasta `src/`
+3. Abra `delta-lake.ipynb` ou `apache-iceberg.ipynb`
+4. Execute as células com **Shift + Enter** ou clique em **Run → Run All Cells**
+
+### Opção 2 — Terminal
+
+```bash
+cd src/
+poetry run python commons.py
+```
+
+> **Atenção:** Os arquivos CSV (`vendas.csv` e `clientes.csv`) precisam estar na pasta `data/raw/` antes da execução dos notebooks.
 
 ---
 
 ## 📊 Sobre os Dados
 
-Os dados utilizados neste projeto formam um cenário sintético de E-commerce, criado exclusivamente para fins académicos de demonstração de manipulação de dados em arquiteturas Lakehouse. O conjunto é composto por:
+Os dados utilizados formam um cenário sintético de **E-commerce**, criado para demonstração de manipulação de dados em arquiteturas Lakehouse.
 
-vendas.csv: Registos de transações, contendo o ID da venda, ID do cliente, data, valor e status do pedido.
+**vendas.csv** — Registros de transações:
 
-clientes.csv: Cadastro de clientes, contendo o ID, nome e o estado (UF) de residência.
+| id_venda | id_cliente | data_venda | valor  | status    |
+|----------|-----------|------------|--------|-----------|
+| 1        | 101       | 2023-01-15 | 250.50 | concluido |
+| 2        | 102       | 2023-01-16 | 120.00 | concluido |
+| 3        | 103       | 2023-01-17 | 340.90 | cancelado |
+| 4        | 101       | 2023-01-18 | 50.00  | concluido |
+| 5        | 104       | 2023-01-19 | 1500.0 | concluido |
 
-Fluxo de Processamento:
-A lógica desenvolvida consiste em extrair estes dados brutos, realizar o cruzamento (Join) entre as vendas e os clientes, e filtrar apenas as vendas concluídas de clientes da região Sul do Brasil (PR, SC, RS). Após a transformação, realizamos operações de CRUD (INSERT, UPDATE e DELETE) evidenciando as garantias transacionais (ACID) dos formatos Delta Lake e Apache Iceberg.
+**clientes.csv** — Cadastro de clientes:
+
+| id_cliente | nome           | estado |
+|-----------|----------------|--------|
+| 101       | Ana Julia      | SC     |
+| 102       | Laura Silveira | RS     |
+| 103       | Carlos Silva   | SP     |
+| 104       | Mateus Souza   | PR     |
+
+### Fluxo de Processamento
+
+```
+clientes.csv ─┐
+               ├──► PySpark ──► Filtro Região Sul ──► Delta Lake
+vendas.csv  ──┘                                   └──► Apache Iceberg
+```
+
+---
+
+## 🗂️ Notebooks
+
+### delta-lake.ipynb
+
+Demonstra operações CRUD no **Delta Lake**:
+
+- **INSERT** — Salva os dados filtrados no formato Delta
+- **UPDATE** — Aumenta o valor da venda 1 em 10%
+- **DELETE** — Remove a venda 3 da tabela
+
+### apache-iceberg.ipynb
+
+Demonstra operações CRUD no **Apache Iceberg**:
+
+- **INSERT** — Salva os dados filtrados no formato Iceberg
+- **UPDATE** — Altera o status da venda 5 para `devolvido`
+- **DELETE** — Remove a venda 2 da tabela
 
 ---
 
 ## 📚 Documentação
 
-A documentação completa do projeto está disponível via MkDocs em:
+A documentação completa está disponível em:
+
 👉 **[https://laurasilveirag.github.io/spark-delta-iceberg](https://laurasilveirag.github.io/spark-delta-iceberg)**
 
 Para visualizar localmente:
 
 ```bash
-uv run mkdocs serve
+poetry run mkdocs serve
 ```
 
 Para publicar no GitHub Pages:
 
 ```bash
-uv run mkdocs gh-deploy
+poetry run mkdocs gh-deploy
 ```
 
 ---
@@ -132,14 +184,8 @@ uv run mkdocs gh-deploy
 - [Documentação PySpark](https://spark.apache.org/docs/latest/api/python/)
 - [Delta Lake Docs](https://docs.delta.io/)
 - [Apache Iceberg Docs](https://iceberg.apache.org/)
-- [uv — Astral](https://github.com/astral-sh/uv)
+- [Poetry Docs](https://python-poetry.org/docs/)
 - [Canal DataWay BR — YouTube](https://www.youtube.com/@DataWayBR)
-
----
-
-## 👩‍💻 Autoras
-
-Desenvolvido por **Ana Julia**, **Janaina** e **Laura** — Curso de Engenharia de Dados, SATC.
 
 ---
 

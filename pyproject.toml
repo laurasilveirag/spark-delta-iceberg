@@ -1,0 +1,24 @@
+[project]
+package-mode = false
+name = "spark-delta-iceberg"
+version = "0.1.0"
+description = "PySpark com Delta Lake e Apache Iceberg"
+authors = [
+    {name = "Ana Santinoni"},
+    {name = "Janaina Carlos"},
+    {name = "Laura Silveira"}
+]
+readme = "README.md"
+requires-python = "^3.12"
+dependencies = [
+    "pyspark (==3.5.3)",
+    "delta-spark (==3.2.0)",
+    "jupyterlab (>=4.5.6,<5.0.0)",
+    "mkdocs (>=1.6.1,<2.0.0)",
+    "mkdocs-material (>=9.7.6,<10.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
