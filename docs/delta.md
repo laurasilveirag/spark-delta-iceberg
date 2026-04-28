@@ -26,6 +26,11 @@ builder = pyspark.sql.SparkSession.builder.appName("DeltaLab") \
 spark = configure_spark_with_delta_pip(builder).getOrCreate()
 ```
 
+## Modelo ER
+
+![Modelo ER](modelo_er.jpeg)
+
+
 ## Operações CRUD
 
 ### 📥 INSERT — Salvando dados no Delta Lake
