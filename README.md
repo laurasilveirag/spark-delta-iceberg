@@ -113,39 +113,6 @@ poetry run python commons.py
 
 ---
 
-## 📊 Sobre os Dados
-
-Os dados utilizados formam um cenário sintético de **E-commerce**, criado para demonstração de manipulação de dados em arquiteturas Lakehouse.
-
-**vendas.csv** — Registros de transações:
-
-| id_venda | id_cliente | data_venda | valor  | status    |
-|----------|-----------|------------|--------|-----------|
-| 1        | 101       | 2023-01-15 | 250.50 | concluido |
-| 2        | 102       | 2023-01-16 | 120.00 | concluido |
-| 3        | 103       | 2023-01-17 | 340.90 | cancelado |
-| 4        | 101       | 2023-01-18 | 50.00  | concluido |
-| 5        | 104       | 2023-01-19 | 1500.0 | concluido |
-
-**clientes.csv** — Cadastro de clientes:
-
-| id_cliente | nome           | estado |
-|-----------|----------------|--------|
-| 101       | Ana Julia      | SC     |
-| 102       | Laura Silveira | RS     |
-| 103       | Carlos Silva   | SP     |
-| 104       | Mateus Souza   | PR     |
-
-### Fluxo de Processamento
-
-```
-clientes.csv ─┐
-               ├──► PySpark ──► Filtro Região Sul ──► Delta Lake
-vendas.csv  ──┘                                   └──► Apache Iceberg
-```
-
----
-
 ## 🗂️ Notebooks
 
 ### delta-lake.ipynb
